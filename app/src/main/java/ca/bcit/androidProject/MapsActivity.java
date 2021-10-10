@@ -1,4 +1,4 @@
-package ca.bcit.a3717project;
+package ca.bcit.androidProject;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -11,7 +11,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import ca.bcit.a3717project.databinding.ActivityMapsBinding;
+import ca.bcit.a3717androidproject.R;
+import ca.bcit.a3717androidproject.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

@@ -1,4 +1,4 @@
-package ca.bcit.a3717project;
+package ca.bcit.a3717androidproject;
 
 import org.junit.Test;
 

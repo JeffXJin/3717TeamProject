@@ -1,4 +1,17 @@
 <resources>
-    <string name="app_name">3717Project</string>
+    <string name="app_name">3717AndroidProject</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title">Sea++</string>
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="login_text">Login</string>
+    <string name="create_account_text">Create an Account</string>
+    <string name="global_map_button_text">Global Map</string>
+    <string name="sea_level_button_text">Sea Level</string>
+    <string name="information_button_text">Information</string>
+    <string name="signup_button_text">Sign Up</string>
+    <string name="information_text">Information text</string>
+    <string name="year_text">Year</string>
+    <string name="global_sea_level_text">The pace of ...</string>
 </resources>
