@@ -1,4 +1,4 @@
-package ca.bcit.a3717project;
+package ca.bcit.androidProject;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ca.bcit.a3717project", appContext.getPackageName());
+        assertEquals("ca.bcit.a3717androidproject", appContext.getPackageName());
     }
 }
