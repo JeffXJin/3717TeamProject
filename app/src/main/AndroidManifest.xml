@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.bcit.a3717androidproject">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -30,11 +29,19 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name="ca.bcit.androidProject.ContributionActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="ca.bcit.androidProject.PreventionActivity"
+            android:exported="true" />
+        <activity
+            android:name="ca.bcit.androidProject.CausesActivity"
+            android:exported="true" />
+        <activity
             android:name="ca.bcit.androidProject.MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps">
-        </activity>
-
+            android:label="@string/title_activity_maps" />
         <activity
             android:name="ca.bcit.androidProject.GlobalSeaLevelActivity"
             android:exported="true" />
@@ -49,12 +56,14 @@
             android:exported="true" />
         <activity
             android:name="ca.bcit.androidProject.CreateAccountActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName="ca.bcit.androidProject.LandingActivity" />
         <activity
-            android:name="ca.bcit.androidProject.MainActivity"
+            android:name="ca.bcit.androidProject.LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

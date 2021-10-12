@@ -7,12 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import ca.bcit.a3717androidproject.R;
 
-public class SeaLevelHistoryActivity extends AppCompatActivity {
+public class ContributionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sea_level_history);
+        setContentView(R.layout.activity_contribution);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

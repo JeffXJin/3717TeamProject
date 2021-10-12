@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ca.bcit.androidProject.InformationActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="290dp"
+        android:id="@+id/info_text"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
         android:text="@string/information_text"
+        android:textAlignment="center"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="50dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/causes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
+        android:text="@string/causesBtn"
+        android:onClick="onCausesClick"/>
+
+    <Button
+        android:id="@+id/prevention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
+        android:text="@string/preventionBtn"
+        android:onClick="onPreventionClick"/>
+
+    <Button
+        android:id="@+id/contribute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
+        android:text="@string/contributeBtn"
+        android:onClick="onContributeClick"/>
+
+
+</LinearLayout>

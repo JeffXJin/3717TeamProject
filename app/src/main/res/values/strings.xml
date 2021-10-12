@@ -11,7 +11,36 @@
     <string name="sea_level_button_text">Sea Level</string>
     <string name="information_button_text">Information</string>
     <string name="signup_button_text">Sign Up</string>
-    <string name="information_text">Information text</string>
     <string name="year_text">Year</string>
     <string name="global_sea_level_text">The pace of ...</string>
+    <string name="year">year</string>
+    <string name="cm">(cm)</string>
+    <string name="_0">0-</string>
+    <string name="_2">2-</string>
+    <string name="_4">4-</string>
+    <string name="_6">6-</string>
+    <string name="_10">10-</string>
+    <string name="_8">8-</string>
+    <string name="_2000">2000</string>
+    <string name="globalMeanLabel">G\nL\nO\nB\nA\nL\n\nM\nE\nA\nN\n\nS\nE\nA\n\nL\nE\nV\nE\nL</string>
+
+
+    <string name="info">Information</string>
+    <string name="information_text">In some ocean basins, sea level has
+        risen as much as 6-8 inches (15-20 centimeters) since the start
+        of the satellite record in 1993.</string>
+    <string name="causesBtn">Causes</string>
+    <string name="preventionBtn">Prevention</string>
+    <string name="contributeBtn">Contribute</string>
+
+
+    <string name="causesPage">Causes</string>
+    <string name="preventionPage">Prevention</string>
+    <string name="contributePage">Contribute</string>
+    <string name="payment_CardName">Card Name</string>
+    <string name="payment_CardNum">Card Number</string>
+    <string name="payment_cvv">CVV</string>
+    <string name="payment_expiry">MM/YY</string>
+    <string name="payment_btn">Donate</string>
+
 </resources>
