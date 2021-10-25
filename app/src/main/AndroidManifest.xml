@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.3717AndroidProject">
-
+        <activity
+            android:name="ca.bcit.androidProject.ProfileActivity"
+            android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -31,7 +33,6 @@
         <activity
             android:name="ca.bcit.androidProject.ContributionActivity"
             android:exported="true" />
-
         <activity
             android:name="ca.bcit.androidProject.PreventionActivity"
             android:exported="true" />

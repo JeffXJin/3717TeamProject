@@ -10,6 +10,7 @@
     <string name="global_map_button_text">Global Map</string>
     <string name="sea_level_button_text">Sea Level</string>
     <string name="information_button_text">Information</string>
+    <string name="profile_button_text">Profile</string>
     <string name="signup_button_text">Sign Up</string>
     <string name="year_text">Year</string>
     <string name="global_sea_level_text">The pace of ...</string>
@@ -42,5 +43,14 @@
     <string name="payment_cvv">CVV</string>
     <string name="payment_expiry">MM/YY</string>
     <string name="payment_btn">Donate</string>
+
+
+
+<!--    profile card strings               -->
+    <string name="email">Email: </string>
+    <string name="phone">Phone number: </string>
+    <string name="edit">Edit </string>
+    <string name="location">Location: </string>
+    <string name="donation">Donated </string>
 
 </resources>
