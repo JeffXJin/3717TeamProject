@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ca.bcit.a3717androidproject.R;
+import ca.bcit.androidProject.R;
 
 public class LandingActivity extends AppCompatActivity {
 
@@ -17,12 +17,12 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View view) {
-        Intent i = new Intent(this, MainPageActivity.class);
+        Intent i = new Intent(this, ca.bcit.androidProject.MainPageActivity.class);
         startActivity(i);
     }
 
     public void onCreateAccountClick(View view) {
-        Intent i = new Intent(this, CreateAccountActivity.class);
+        Intent i = new Intent(this, ca.bcit.androidProject.CreateAccountActivity.class);
         startActivity(i);
     }
 }
