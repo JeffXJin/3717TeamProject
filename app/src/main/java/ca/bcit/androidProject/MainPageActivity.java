@@ -7,8 +7,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import ca.bcit.a3717androidproject.R;
-
 public class MainPageActivity extends AppCompatActivity {
 
     @Override
@@ -31,7 +29,7 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     public void onGlobalSeaLevelClick(View view) {
-        Intent i = new Intent(this, GlobalSeaLevelActivity.class);
+        Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
     }
 

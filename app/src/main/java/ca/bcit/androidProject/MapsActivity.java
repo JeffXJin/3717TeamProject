@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,7 +21,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import ca.bcit.androidProject.databinding.ActivityMapsBinding;
-
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -54,64 +54,57 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon("HELLO THERE"))));
+        LatLng van = new LatLng(49.2578263,-123.1939441);
+//        mMap.addMarker(new MarkerOptions().position(van).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon("+ 0.8mm"))));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        addPoints();
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(van));
     }
 
-    private static Paint setTextSizeForWidth(Paint paint, float desiredWidth,
-                                            String text) {
+    public void addPoints() {
+        LatLng[] p = new LatLng[6];
+        p[0] = new LatLng(49.232369, -123.206863);
+        p[1] = new LatLng(49.266900, -123.262609);
+        p[2] = new LatLng(49.191833, -123.207692);
+        p[3] = new LatLng(49.149167, -123.197055);
+        p[4] = new LatLng(49.270455, -123.182764);
+        p[5] = new LatLng(49.333670, -123.172028);
 
-        // Pick a reasonably large value for the test. Larger values produce
-        // more accurate results, but may cause problems with hardware
-        // acceleration. But there are workarounds for that, too; refer to
-        // http://stackoverflow.com/questions/6253528/font-size-too-large-to-fit-in-cache
-        final float testTextSize = 48f;
-
-        // Get the bounds of the text, using our testTextSize.
-        paint.setTextSize(testTextSize);
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-
-        // Calculate the desired size as a proportion of our testTextSize.
-        float desiredTextSize = testTextSize * desiredWidth / bounds.width();
-
-        // Set the paint for that size.
-        paint.setTextSize(desiredTextSize);
-        return paint;
+        for (int i = 0; i < 6; i ++) {
+            mMap.addMarker(new MarkerOptions().position(p[i]).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon("+ 0.8mm"))));
+        }
     }
 
-    public Bitmap resizeMapIcons(String iconName, int width, int height){
-        Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(iconName, "drawable", getPackageName()));
-        Bitmap resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, width, height, false);
-        return resizedBitmap;
+    public void onZoom(View v) {
+        if (v.getId() == R.id.btnZoomIn)
+            mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        else
+            mMap.animateCamera(CameraUpdateFactory.zoomOut());
     }
 
     public Bitmap createPureTextIcon(String text) {
 
-        Paint textPaint = new Paint(); // Adapt to your needs
+        Paint textPaint = new Paint();
 
         textPaint.setTextSize(20f);
         textPaint.setColor(Color.RED);
         float textWidth = textPaint.measureText(text);
         float textHeight = textPaint.getTextSize();
-        int width = (int) (textWidth);
-        int height = (int) (textHeight);
+        int width = (int) (textWidth * 1.25);
+        int height = (int) (textHeight * 1.25);
 
         Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(image);
 
         canvas.translate(0, height);
 
-        // For development only:
-        // Set a background in order to see the
-        // full size and positioning of the bitmap.
-        // Remove that for a fully transparent icon.
-        canvas.drawColor(Color.LTGRAY);
+
+        // Background color
+//        canvas.drawColor(Color.BLACK);
 
 //        textPaint = setTextSizeForWidth(textPaint,400,text);
-        canvas.drawText(text, 0, 0, textPaint);
+        canvas.drawText(text, 0, -5, textPaint);
         BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(image);
         Bitmap resized = Bitmap.createScaledBitmap(image,width * 5,height * 5,false);
         return resized;

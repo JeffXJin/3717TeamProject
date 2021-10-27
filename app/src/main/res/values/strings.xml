@@ -52,5 +52,7 @@
     <string name="edit">Edit </string>
     <string name="location">Location: </string>
     <string name="donation">Donated </string>
+    <string name="zoomOut">-</string>
+    <string name="zoomIn">+</string>
 
 </resources>
