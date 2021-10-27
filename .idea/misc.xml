@@ -13,6 +13,7 @@
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717TeamProject/app/src/main/res/layout/activity_sea_level_history.xml" value="0.5839552238805971" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.3515625" />
         <entry key="app/src/main/res/drawable/pagebackground.xml" value="0.3536458333333333" />
+        <entry key="app/src/main/res/drawable/profile_card.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/drawable/profilebar.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/drawable/toolbar.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/activity_causes.xml" value="0.3375" />
@@ -20,6 +21,7 @@
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/activity_global_sea_level.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.3375" />
+        <entry key="app/src/main/res/layout/activity_land.xml" value="0.33541666666666664" />
         <entry key="app/src/main/res/layout/activity_landing.xml" value="1.0" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3074074074074074" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.3375" />
