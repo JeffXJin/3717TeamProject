@@ -34,4 +34,9 @@ public class MainPageActivity extends AppCompatActivity {
         Intent i = new Intent(this, GlobalSeaLevelActivity.class);
         startActivity(i);
     }
+
+    public void onProfileClick(View view) {
+        Intent i = new Intent(this, ProfileActivity.class);
+        startActivity(i);
+    }
 }

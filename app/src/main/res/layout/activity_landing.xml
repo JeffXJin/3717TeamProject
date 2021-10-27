@@ -8,20 +8,22 @@
     android:background="@drawable/pagebackground"
     tools:context="ca.bcit.androidProject.LandingActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:elevation="4dp"
-        android:src="@drawable/sea_logo" />
+        app:lottie_rawRes="@raw/sealevel_logo"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-140dp"
+        android:layout_marginTop="10dp"
         android:text="@string/title"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -35,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:autofillHints=""
         android:ems="10"
