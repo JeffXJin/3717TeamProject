@@ -11,6 +11,8 @@
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
         android:layout_marginBottom="10dp"/>
 
     <TextView
@@ -94,19 +96,20 @@
         android:textSize="24sp" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/year_seekBar"
         android:layout_width="244dp"
         android:layout_height="58dp"
         android:layout_row="8"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:progress="0"/>
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/year_textView"
         android:layout_width="245dp"
         android:layout_height="61dp"
         android:layout_row="7"
         android:layout_column="1"
-        android:text="@string/_2000"
+        android:text="@string/_1880"
         android:textAlignment="center"
         android:textSize="34sp" />
 
@@ -120,4 +123,12 @@
         android:text="@string/globalMeanLabel"
         android:textAlignment="center"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/test_tv"
+        android:layout_width="227dp"
+        android:layout_height="61dp"
+        android:layout_row="6"
+        android:layout_column="1"
+        android:text="TextView" />
 </GridLayout>
