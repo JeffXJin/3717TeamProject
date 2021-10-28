@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import ca.bcit.a3717androidproject.R;
+import ca.bcit.androidProject.R;
 
 public class InformationActivity extends AppCompatActivity {
 
@@ -22,17 +22,17 @@ public class InformationActivity extends AppCompatActivity {
 
 
     public void onCausesClick(View view) {
-        Intent i = new Intent(this, CausesActivity.class);
+        Intent i = new Intent(this, ca.bcit.androidProject.CausesActivity.class);
         startActivity(i);
     }
 
     public void onPreventionClick(View view) {
-        Intent i = new Intent(this, PreventionActivity.class);
+        Intent i = new Intent(this, ca.bcit.androidProject.PreventionActivity.class);
         startActivity(i);
     }
 
     public void onContributeClick(View view) {
-        Intent i = new Intent(this, ContributionActivity.class);
+        Intent i = new Intent(this, ca.bcit.androidProject.ContributionActivity.class);
         startActivity(i);
     }
 }

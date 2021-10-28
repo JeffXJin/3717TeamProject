@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
 
-import ca.bcit.a3717androidproject.R;
+import ca.bcit.androidProject.R;
 
 public class CausesActivity extends AppCompatActivity {
 

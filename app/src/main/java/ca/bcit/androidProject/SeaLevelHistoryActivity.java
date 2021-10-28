@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import ca.bcit.a3717androidproject.R;
+import ca.bcit.androidProject.R;
 
 public class SeaLevelHistoryActivity extends AppCompatActivity {
     private static final int LOWEST_YEAR = 1880;
