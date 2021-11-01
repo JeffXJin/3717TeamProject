@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context="ca.bcit.androidProject.PreventionFragment">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
+        android:text="@string/prevention_title"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/preventionContent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention_p1"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/preventionContent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention_p2"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_1"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention1"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:src="@drawable/footprint" />
+
+    <TextView
+        android:id="@+id/prevention_1p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention1_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_2"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention2"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/wetlands"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:src="@drawable/wetlands" />
+
+
+    <TextView
+        android:id="@+id/prevention_2p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention2_p1"
+        android:textAlignment="center" />
+
+
+
+    <TextView
+        android:id="@+id/prevention_3"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention3"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_3p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention3_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_4"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention4"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/plant"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:src="@drawable/planting" />
+
+    <TextView
+        android:id="@+id/prevention_4p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention4_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_5"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention5"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/energy"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:src="@drawable/energy" />
+
+    <TextView
+        android:id="@+id/prevention_5p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention5_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_6"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention6"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_6p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention6_p1"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_7"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention7"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_7p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention7_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_8"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention8"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_8p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention8_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_9"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention9"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_9p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention9_p1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/prevention_10"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention10"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/prevention_10p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/prevention10_p1"
+        android:textAlignment="center" />
+
+</LinearLayout>
+</ScrollView>

@@ -3,11 +3,17 @@ package ca.bcit.androidProject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+
 public class MainPageActivity extends AppCompatActivity {
+
+    TextView tvLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +22,18 @@ public class MainPageActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        tvLogout = findViewById(R.id.tvLogout);
+
+        tvLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut(); // logout
+                startActivity(new Intent(getApplicationContext(), LandingActivity.class));
+                finish();
+            }
+        });
+
     }
 
     public void onSeaLevelClick(View view) {

@@ -1,6 +1,7 @@
 package ca.bcit.androidProject;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -72,6 +73,15 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+        // sets the title to the toolbar
+        getSupportActionBar().setTitle("Sea Level History");
     }
 
     private void queueParseJSON() {
@@ -101,5 +111,13 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
             int yearInt = Integer.parseInt(yearArray[0]);
             seaLevelDataMap.put(yearInt, sld.getGmsl());
         }
+    }
+
+
+    // back button function
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

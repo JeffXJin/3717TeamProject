@@ -10,25 +10,37 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/tvLogout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="-12dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sea_logo" />
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:textColor="@color/teal_700"
+        android:layout_marginEnd="10dp"
+        android:text="@string/logout_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:elevation="4dp"
+        app:lottie_rawRes="@raw/sealevel_logo"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
     <Button
         android:id="@+id/global_map_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:elevation="4dp"
@@ -90,6 +102,7 @@
         android:background="@drawable/custom_button"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
+    </LinearLayout>
 
 </LinearLayout>
+

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">3717AndroidProject</string>
+    <string name="app_name">Sea++</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title">Sea++</string>
     <string name="username_hint">Username</string>
@@ -12,6 +12,13 @@
     <string name="information_button_text">Information</string>
     <string name="profile_button_text">Profile</string>
     <string name="signup_button_text">Sign Up</string>
+    <string name="login_prompt">Already have an account?</string>
+
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="logout_text">Logout</string>
+
+
     <string name="year_text">Year</string>
     <string name="global_sea_level_text">The pace of ...</string>
     <string name="year">year</string>
@@ -31,14 +38,13 @@
     <string name="information_text">In some ocean basins, sea level has
         risen as much as 6-8 inches (15-20 centimeters) since the start
         of the satellite record in 1993.</string>
-    <string name="causesBtn">Causes</string>
-    <string name="preventionBtn">Prevention</string>
-    <string name="contributeBtn">Contribute</string>
 
+    <string name="contribute_tab">Contribute</string>
+    <string name="causes_tab">Causes</string>
+    <string name="prevention_tab">Prevention</string>
+    <string name="info_tab">Sea Level</string>
 
-    <string name="causesPage">Causes</string>
-    <string name="preventionPage">Prevention</string>
-    <string name="contributePage">Contribute</string>
+    <!--    Contribute/Donation strings             -->
     <string name="payment_CardName">Card Name</string>
     <string name="payment_CardNum">Card Number</string>
     <string name="payment_cvv">CVV</string>
@@ -46,14 +52,69 @@
     <string name="payment_btn">Donate</string>
 
 
-
-<!--    profile card strings               -->
+    <!--    profile card strings               -->
     <string name="email">Email: </string>
     <string name="phone">Phone number: </string>
     <string name="edit">Edit </string>
     <string name="location">Location: </string>
     <string name="donation">Donated </string>
+
+    <!--    Gloabal Map strings              -->
     <string name="zoomOut">-</string>
     <string name="zoomIn">+</string>
+
+
+    <!--    This will the all the contents/strings of the information pages of the app. -->
+    <!--    Information contents   -->
+    <string name="moreInfo_title">Information about Sea level rise</string>
+    <string name="sea_level_p1">Sea level rise is an increase in the level of the world’s oceans due to the effects of global warming. Burning fossil fuels is one of the causes of global warming because it releases carbon dioxide and other heat-trapping gasses into the atmosphere. The oceans then absorb the majority of this heat. As water becomes warmer, it expands. This results in ocean levels rising worldwide.</string>
+    <string name="resources_title">More web information and resources about Sea level rise:</string>
+    <string name="nasa_link"><a href="https://climate.nasa.gov/climate_resources/199/rising-tides-understanding-sea-level-rise/">Global Climate Change NASA</a></string>
+    <string name="ocean_link"><a href="https://www.whoi.edu/know-your-ocean/ocean-topics/climate-ocean/sea-level-rise/">Woods Hole Oceanographic Institution</a></string>
+    <string name="natGeo_link"><a href="https://www.nationalgeographic.com/environment/article/sea-level-rise-1">National Geographic</a></string>
+
+    <!--    causes contents -->
+    <string name="causes_title">What are the causes of Sea Level rise?</string>
+    <string name="causes_p1">Sea level is rising — and at an accelerating rate — especially along the US East Coast and Gulf of Mexico</string>
+    <string name="causes_p2">Ice melting from land into the ocean, warming waters that expand, a slowing Gulf Stream, and sinking land all contribute to sea level rise.</string>
+    <string name="causes_ice_melt">ICE MELT</string>
+    <string name="causes_ice_melt1">Over 1,700 trillion pounds of glacial ice melts from the land into the sea each year. There are two types of glaciers: continental (ice sheets and ice caps) and alpine (glaciers in mountains and valleys). As glacial ice melts, sea levels rise everywhere, and ice from as far as Antarctica can impact America’s coast.</string>
+    <string name="causes_ice_melt2">While mountain glaciers and ice caps have been melting for hundreds of years research shows that ice sheets in Antarctica and Greenland are now melting much faster, and are the biggest source of ice melt.</string>
+    <string name="causes_thermal">THERMAL EXPANSION</string>
+    <string name="causes_thermal_p1">Thermal expansion is the scientific term for expanding water, and it is responsible for about one-third of global sea level rise. As the ocean gets warmer each year, it expands, raising the sea level.</string>
+    <string name="causes_thermal_p2">Recently, the ocean has been getting progressively hotter. Thermal expansion has increased, causing sea levels to rise 75% faster over the last 10 years, as compared to previous years.</string>
+    <string name="causes_land">LAND SINKAGE</string>
+    <string name="causes_land_p1">Land sinkage is generally a small contributor to sea level rise, but in some places it’s responsible for more than half of the sea level rise. Sea levels are measured relative to land, which means that when the ground sinks lower, sea levels reach higher.</string>
+    <string name="causes_land_p2">Sea level rise is faster in towns like Norfolk, Virginia, because the land beneath these towns is actually sinking. This sinking moves the ground below the town downward and closer to the sea level, speeding up the sea level rise. In California, the land is actually rising due to shifts in the tectonic plates, so the sea level is not rising as fast as it is in other places.</string>
+
+    <string name="causes_gulf">GULF STREAM</string>
+    <string name="causes_gulf_p1">The Gulf Stream is part of a vast oceanic conveyor belt system that moves water around the world’s oceans. The Gulf Stream moves north along the eastern coast of Florida until it takes a right turn at North Carolina, pulling water away from the East Coast. The amount of water circulating in the Gulf Stream is 150 times greater than the Amazon River, and moves at an average speed of 4 miles per hour.</string>
+    <string name="causes_gulf_p2">Because the Gulf Stream is slowing, less water is taken from the East Coast, leaving more water to pile up and causing the sea level to rise in places like Florida.</string>
+
+
+    <!--    Prevention contents -->
+    <string name="prevention_title">How can we prevent the rapid rise of Sea Level?</string>
+    <string name="prevention_p1">Sea levels are going to rise by at least 20ft. We can do something about it! </string>
+    <string name="prevention_p2">Here are 10 tips on Sea Level rise: </string>
+    <string name="prevention1">Reduce your footprint</string>
+    <string name="prevention1_p1">Greenhouse gasses are a major contributor to sea level rise. Calculate your “Carbon Footprint” at www.carbonfootprint.com to learn how to reduce the amount of greenhouse gases you produce each day. </string>
+    <string name="prevention2">Protect wetlands.</string>
+    <string name="prevention2_p1">Wetlands act as natural buffers for coastal areas during rainstorms and hurricanes. They absorb precipitation and storm surge waters. Learn about wetland restoration activities in your area and get involved.</string>
+    <string name="prevention3">Let it soak in.</string>
+    <string name="prevention3_p1">Hard surfaces prevent water from permeating into the ground and lead to an increase in runoff and erosion. Use stepping stones for walkways and paver blocks for patios. If you are repaving use permeable pavement which allows water to soak into the ground. Direct rain runoff to rain gardens and barrels.</string>
+    <string name="prevention4">Plant more plants and save trees.</string>
+    <string name="prevention4_p1">Plants clean the air and soak up rain. Reduce paper use to prevent trees from being cut down. Set all computers and printers to double-sided printing and reuse one-sided copies as scrap paper. </string>
+    <string name="prevention5">Reduce your energy use.</string>
+    <string name="prevention5_p1">Reducing your energy usage is good for your wallet and the environment. Turn off your lights and appliances when not in use and replace them with more energy efficient varieties. Unplug your chargers and appliances when possible because many use energy even when turned off. Adjust your </string>
+    <string name="prevention6">Obey “no-wake” zones.</string>
+    <string name="prevention6_p1">Waves produced by motor crafts increase erosion along shore lines. Operate in deeper water and keep an eye out for “fragile area” and “slow no wake” signs. </string>
+    <string name="prevention7">Leave the car at home.</string>
+    <string name="prevention7_p1">Vehicles are a leading source of carbon dioxide production. Reduce the number of cars on the road by carpooling, walking, biking, or using mass transit. When driving, turn your car off if idling for more than 30 seconds. This will conserve fuel, save money, and reduce greenhouse gas emissions. </string>
+    <string name="prevention8">Watch what you’re dune.</string>
+    <string name="prevention8_p1">Dunes and grasses protect inland areas from wind and wave action, thus preserving the shore. Dunes and sod banks are fragile areas, so stay on designated paths to avoid them. Support restoration! </string>
+    <string name="prevention9">Know your flood zone.</string>
+    <string name="prevention9_p1">Knowing your risk for flooding before a storm strikes will help you be much better prepared for high storm surge. Contact your local government or go to www.msc.fema.gov to view your local flood map. </string>
+    <string name="prevention10">Push for a Climate Action Plan.</string>
+    <string name="prevention10_p1">Many cities and states do not have plans to address climate change, which is the primary cause of current sea level rise. Contact your local elected officials and encourage them to take action now.</string>
 
 </resources>
