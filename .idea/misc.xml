@@ -32,14 +32,16 @@
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_prevention.xml" value="0.3234375" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2668711656441718" />
-        <entry key="app/src/main/res/layout/activity_sea_level_history.xml" value="0.3375" />
+        <entry key="app/src/main/res/layout/activity_sea_level_history.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_causes.xml" value="0.23387978142076501" />
         <entry key="app/src/main/res/layout/fragment_contribute.xml" value="0.334375" />
         <entry key="app/src/main/res/layout/fragment_more_info.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_prevention.xml" value="0.2921875" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.3375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.3614583333333333" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.225" />
       </map>
     </option>
   </component>

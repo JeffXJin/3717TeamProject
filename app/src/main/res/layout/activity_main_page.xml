@@ -1,108 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:id="@+id/drawer_layout"
     tools:context="ca.bcit.androidProject.MainPageActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pagebackground"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <TextView
-        android:id="@+id/tvLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="textEnd"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        android:textColor="@color/teal_700"
-        android:layout_marginEnd="10dp"
-        android:text="@string/logout_text" />
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textColor="@color/teal_700"
+            android:layout_marginEnd="10dp"
+            android:text="@string/logout_text" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:elevation="4dp"
-        app:lottie_rawRes="@raw/sealevel_logo"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/global_map_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:elevation="4dp"
-        android:text="@string/global_map_button_text"
-        android:textColor="@color/white"
-        android:onClick="onGlobalSeaLevelClick"
-        android:background="@drawable/custom_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:elevation="4dp"
+                app:lottie_rawRes="@raw/sealevel_logo"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
-    <Button
-        android:id="@+id/sea_level_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:elevation="4dp"
-        android:text="@string/sea_level_button_text"
-        android:textColor="@color/white"
-        android:onClick="onSeaLevelClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/custom_button"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/global_map_button" />
+            <Button
+                android:id="@+id/global_map_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:elevation="4dp"
+                android:text="@string/global_map_button_text"
+                android:textColor="@color/white"
+                android:onClick="onGlobalSeaLevelClick"
+                android:background="@drawable/custom_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
-        android:id="@+id/information_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:elevation="4dp"
-        android:text="@string/information_button_text"
-        android:textColor="@color/white"
-        android:onClick="onInformationClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/custom_button"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sea_level_button" />
+            <Button
+                android:id="@+id/sea_level_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:elevation="4dp"
+                android:text="@string/sea_level_button_text"
+                android:textColor="@color/white"
+                android:onClick="onSeaLevelClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/custom_button"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/global_map_button" />
 
-    <Button
-        android:id="@+id/profile_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:elevation="4dp"
-        android:text="@string/profile_button_text"
-        android:textColor="@color/white"
-        android:onClick="onProfileClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/custom_button"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/information_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:elevation="4dp"
+                android:text="@string/information_button_text"
+                android:textColor="@color/white"
+                android:onClick="onInformationClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/custom_button"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sea_level_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </FrameLayout>
+
 
 </LinearLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

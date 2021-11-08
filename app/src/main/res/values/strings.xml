@@ -19,6 +19,10 @@
     <string name="logout_text">Logout</string>
 
 
+    <string name="nav_open_drawer">Open Navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
+
+
     <string name="year_text">Year</string>
     <string name="global_sea_level_text">The pace of ...</string>
     <string name="year">year</string>
@@ -116,5 +120,9 @@
     <string name="prevention9_p1">Knowing your risk for flooding before a storm strikes will help you be much better prepared for high storm surge. Contact your local government or go to www.msc.fema.gov to view your local flood map. </string>
     <string name="prevention10">Push for a Climate Action Plan.</string>
     <string name="prevention10_p1">Many cities and states do not have plans to address climate change, which is the primary cause of current sea level rise. Contact your local elected officials and encourage them to take action now.</string>
+    <string name="home_nav">Home</string>
+    <string name="information_nav">Information</string>
+    <string name="global_nav">Global</string>
+    <string name="profile_nav">Profile</string>
 
 </resources>

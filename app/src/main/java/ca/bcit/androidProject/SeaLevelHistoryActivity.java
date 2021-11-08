@@ -2,6 +2,7 @@ package ca.bcit.androidProject;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -36,6 +37,8 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
     private ArrayList<SeaLevelData> seaLevelDataList = new ArrayList<>();
     private HashMap<Integer, Double> seaLevelDataMap = new HashMap<>();
 
+    private View barGraph;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,7 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
         queueParseJSON();
+
 
         yearSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
