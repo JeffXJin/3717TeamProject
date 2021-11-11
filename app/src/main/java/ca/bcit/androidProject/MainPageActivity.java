@@ -78,6 +78,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         startActivity(i);
     }
 
+    public void onViewStatesClick(View view) {
+        Intent i = new Intent(this, StateActivity.class);
+        startActivity(i);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

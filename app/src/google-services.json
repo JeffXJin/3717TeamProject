@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "995188692450",
+    "project_id": "seapp-a22dc",
+    "storage_bucket": "seapp-a22dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995188692450:android:9620c38eb740d1d7d4d5bb",
+        "android_client_info": {
+          "package_name": "ca.bcit.a3717androidproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995188692450-gi984d0ab67k2qg67hbbmd6tjcrt2u61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMohfts-NfwkioGV1xc-6W7adk0JnJSZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995188692450-gi984d0ab67k2qg67hbbmd6tjcrt2u61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

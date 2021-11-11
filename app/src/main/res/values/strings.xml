@@ -125,4 +125,6 @@
     <string name="global_nav">Global</string>
     <string name="profile_nav">Profile</string>
 
+    <string name="sea_level_json">https://sea-level-rise-data.herokuapp.com/api/v1/stations</string>
+    <string name="back">back</string>
 </resources>
