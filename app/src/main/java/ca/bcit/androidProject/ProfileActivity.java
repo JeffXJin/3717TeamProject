@@ -1,5 +1,6 @@
 package ca.bcit.androidProject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -7,11 +8,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 
 public class ProfileActivity extends AppCompatActivity {
+
+
+    private FirebaseUser user;
+    private DatabaseReference reference;
+
+    private String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,32 +50,41 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile");
 
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("user");
+        userID = user.getUid();
+
+
+        TextView fullNameTextView = (TextView) findViewById(R.id.user_name);
+        TextView emailTextView = (TextView) findViewById(R.id.user_email);
+        TextView phoneTextView = (TextView) findViewById(R.id.user_phone);
+
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+
+                if (userProfile != null) {
+                    String fullname = userProfile.getName();
+                    String email = userProfile.getEmail();
+                    String phone = userProfile.getPhone();
+
+                    fullNameTextView.setText(fullname);
+                    emailTextView.setText(email);
+                    phoneTextView.setText(phone);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileActivity.this, "Cannot display the profile information", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
-    /**
-     * This will set the Profile menu item to invisible
-     * @param menu menu
-     * @return true
-     */
-    public boolean onPrepareOptionsMenu(Menu menu){
-        super.onPrepareOptionsMenu(menu);
-        if (menu.findItem(R.id.userProfileButton) != null) {
-            menu.findItem(R.id.userProfileButton).setVisible(false);
-        }
-        return true;
-    }
-
-    /**
-     * This will inflate the menu_appbar to the activity.
-     * @param menu menu
-     * @return menu
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_appbar, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
     /**
      * This will allow user to logout to the app.

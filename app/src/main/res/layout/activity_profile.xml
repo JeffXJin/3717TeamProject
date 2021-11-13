@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profilebar"
+    android:background="@drawable/page_image_backgroun"
     android:orientation="vertical"
     tools:context="ca.bcit.androidProject.ProfileActivity">
 
@@ -13,144 +13,154 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/custom_input_field"
+        android:orientation="horizontal">
+
+        <TextView
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/profile_bar"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
+        android:layout_gravity="center_vertical"
             android:textAlignment="center"
-            android:background="@drawable/toolbar"/>
-
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-50dp"
-            app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textAlignment="center"
-            android:text="User Name" />
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/email" />
-
-            <TextView
-                android:id="@+id/user_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="user email" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/phone" />
-
-            <TextView
-                android:id="@+id/user_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="user phone" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/location" />
-
-            <TextView
-                android:id="@+id/user_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="user location" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/donation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="@string/donation" />
-
-            <TextView
-                android:id="@+id/donated_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:text="TextView" />
-
-        </LinearLayout>
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:background="@drawable/custom_button"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:text="@string/edit" />
-
+            android:textSize="20sp"
+        android:text="User Name"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/custom_input_field"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/email"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_email" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="7dp"
+            android:textSize="18sp"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/custom_input_field"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/phone"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_phone" />
+
+        <TextView
+            android:id="@+id/user_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="7dp"
+            android:textSize="18sp"
+            android:text=" " />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:text="@string/edit"
+        android:textAllCaps="false"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/custom_input_field"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/donation"
+            app:drawableStartCompat="@drawable/ic_dollar" />
+
+        <TextView
+            android:id="@+id/donated_amount"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:text="" />
+
+        <Button
+            android:id="@+id/email_receipt"
+            android:layout_gravity="end"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/custom_button"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:text="@string/email_receipt"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>
