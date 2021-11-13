@@ -28,18 +28,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvLogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="15sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/teal_200"
-                    android:layout_marginEnd="10dp"
-                    android:text="@string/logout_text" />
-
-
                 <com.airbnb.lottie.LottieAnimationView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -59,6 +47,10 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/global_btn"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     android:elevation="4dp"
@@ -79,6 +71,10 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:onClick="onSeaLevelClick"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:background="@drawable/sea_btn" />
 
@@ -95,6 +91,10 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:onClick="onInformationClick"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:background="@drawable/inform_btn"/>
 
@@ -106,7 +106,11 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:elevation="4dp"
-                    android:text="View SLR Data"
+                    android:text="@string/view_slr_data"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
@@ -115,26 +119,10 @@
                     android:background="@drawable/slr_btn"/>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-            </LinearLayout>
         </FrameLayout>
 
 
     </LinearLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

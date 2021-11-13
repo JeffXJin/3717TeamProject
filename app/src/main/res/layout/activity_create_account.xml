@@ -5,20 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/pagebackground"
+    android:background="@drawable/page_image_backgroun"
     tools:context="ca.bcit.androidProject.CreateAccountActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="150dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="@string/create_account_text"
+        android:shadowColor="@color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         android:textAlignment="center"
         android:textSize="34sp"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,34 +33,37 @@
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:ems="10"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/custom_input_field"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColorHint="@color/teal_700"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        android:textColorHint="@color/teal_700" />
 
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:ems="10"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        android:textColorHint="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="10dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/custom_input_field"
+        android:textColorHint="@color/teal_700" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -66,33 +74,39 @@
         android:layout_marginEnd="80dp"
         android:text="@string/signup_button_text"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/custom_button"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        android:background="@drawable/custom_button" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
             android:text="@string/login_prompt"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:layout_marginStart="90dp"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/tvLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawablePadding="10dp"
             android:text="@string/login_text"
-            android:textColor="@color/teal_700" />
+            android:textColor="@color/purple_200"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
 
     </LinearLayout>
 

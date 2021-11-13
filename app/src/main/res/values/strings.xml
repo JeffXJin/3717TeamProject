@@ -127,4 +127,5 @@
 
     <string name="sea_level_json">https://sea-level-rise-data.herokuapp.com/api/v1/stations</string>
     <string name="back">back</string>
+    <string name="view_slr_data">View SLR Data</string>
 </resources>

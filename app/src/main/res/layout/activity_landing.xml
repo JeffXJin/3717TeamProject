@@ -5,86 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/pagebackground"
+    android:background="@drawable/page_image_backgroun"
     tools:context="ca.bcit.androidProject.LandingActivity">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:elevation="4dp"
-        app:lottie_rawRes="@raw/sealevel_logo"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textColor="@color/teal_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/email_hint"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input_field"
             android:inputType="textEmailAddress"
             android:textColor="@color/dark_grey"
-            android:textColorHint="@color/dark_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textColorHint="@color/dark_grey"/>
 
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="50dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/password_hint"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input_field"
             android:inputType="textPassword"
             android:textColor="@color/dark_grey"
-            android:textColorHint="@color/dark_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            android:textColorHint="@color/dark_grey"/>
+
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="80dp"
             android:background="@drawable/custom_button"
             android:text="@string/login_text"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/create_account_button"
@@ -97,11 +94,7 @@
             android:onClick="onCreateAccountClick"
             android:text="@string/create_account_text"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/white"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_button" />
-
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <ProgressBar

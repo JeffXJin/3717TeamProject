@@ -3,6 +3,7 @@ package ca.bcit.androidProject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -19,9 +20,10 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainPageActivity extends AppCompatActivity {
 
     TextView tvLogout;
 
@@ -33,34 +35,34 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                drawer,
-                toolbar,
-                R.string.nav_open_drawer,
-                R.string.nav_close_drawer);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+    }
 
 
 
-        tvLogout = findViewById(R.id.tvLogout);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_appbar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        tvLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut(); // logout
-                startActivity(new Intent(getApplicationContext(), LandingActivity.class));
-                finish();
-            }
-        });
+    public void onLogoutClick(MenuItem menu) {
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        fAuth.signOut();
+        Intent intent = new Intent(this, LandingActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
-
+    public void onUserProfileClick(MenuItem menu) {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Intent intent;
+        if (currentUser != null) {
+            intent = new Intent(this, ProfileActivity.class);
+        } else {
+            intent = new Intent(this, LandingActivity.class);
+        }
+        startActivity(intent);
     }
 
     public void onSeaLevelClick(View view) {
@@ -81,37 +83,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     public void onViewStatesClick(View view) {
         Intent i = new Intent(this, StateActivity.class);
         startActivity(i);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        Fragment fragment = null;
-        Intent intent = null;
-
-        switch(id) {
-            case R.id.nav_profile:
-                intent = new Intent(this,ProfileActivity.class);
-                break;
-            case R.id.nav_global:
-                intent = new Intent(this,MapsActivity.class);
-                break;
-            case R.id.nav_donate:
-                intent = new Intent(this,InformationActivity.class);
-                break;
-        }
-
-        if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
-        } else {
-            startActivity(intent);
-        }
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     @Override

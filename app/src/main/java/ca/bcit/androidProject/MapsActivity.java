@@ -63,8 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         statesList = new ArrayList<States>();
 
-        requestQueue = Volley.newRequestQueue(this);
-        queueParseJSON();
+
 
         ca.bcit.androidProject.databinding.ActivityMapsBinding binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -75,6 +74,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
+
+        requestQueue = Volley.newRequestQueue(this);
+        queueParseJSON();
     }
 
     @Override
