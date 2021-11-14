@@ -23,6 +23,7 @@
     <string name="nav_close_drawer">Close navigation drawer</string>
 
 
+    <!--    SeaLevelHistoryActivity-->
     <string name="year_text">Year</string>
     <string name="global_sea_level_text">The pace of ...</string>
     <string name="year">year</string>
@@ -33,9 +34,10 @@
     <string name="_6">6-</string>
     <string name="_10">10-</string>
     <string name="_8">8-</string>
-    <string name="_1880">1880</string>
+    <string name="_1900">1900</string>
     <string name="_2000">2000</string>
     <string name="globalMeanLabel">G\nL\nO\nB\nA\nL\n\nM\nE\nA\nN\n\nS\nE\nA\n\nL\nE\nV\nE\nL</string>
+    <string name="sea_level_units">mm</string>
 
 
     <string name="info">Information</string>
