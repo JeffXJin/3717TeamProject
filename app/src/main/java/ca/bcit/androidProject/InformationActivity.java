@@ -3,6 +3,7 @@ package ca.bcit.androidProject;
 import android.os.Bundle;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -53,6 +54,7 @@ public class InformationActivity extends AppCompatActivity {
             return 4;
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
             switch (position) {
