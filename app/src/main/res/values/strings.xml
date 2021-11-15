@@ -56,10 +56,10 @@
 
 
     <!--    profile card strings               -->
-    <string name="email">Email: </string>
-    <string name="phone">Phone number: </string>
+    <string name="email">Email </string>
+    <string name="phone">Phone number </string>
     <string name="edit">Edit </string>
-    <string name="location">Location: </string>
+    <string name="location">Location </string>
     <string name="donation">Donated </string>
 
     <!--    Gloabal Map strings              -->
@@ -130,5 +130,6 @@
 
 
     <string name="email_receipt">Email Receipt</string>
+    <string name="save_txt">Save</string>
 
 </resources>

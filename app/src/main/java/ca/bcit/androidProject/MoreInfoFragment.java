@@ -14,15 +14,10 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 public class MoreInfoFragment extends Fragment {
-    private VideoView videoView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more_info, container, false);
-
-        videoView = view.findViewById(R.id.videoView);
-
-        setupRawVideo();
 
 
         TextView nasa_Link = view.findViewById(R.id.InfoLinkContent);
@@ -37,13 +32,4 @@ public class MoreInfoFragment extends Fragment {
         return view;
     }
 
-    private void setupRawVideo() {
-        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.sea_rise_video;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-        MediaController mediaController = new MediaController(getActivity());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
-        videoView.start();
-    }
 }
