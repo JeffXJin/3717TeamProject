@@ -1,7 +1,6 @@
 package ca.bcit.androidProject;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -22,11 +21,10 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ca.bcit.androidProject.R;
-
 public class SeaLevelHistoryActivity extends AppCompatActivity {
-    private static final int LOWEST_YEAR = 1880;
+    private static final int LOWEST_YEAR = 1900;
     private static final int YEAR_RANGE = 2013 - LOWEST_YEAR;
+    private final double OFFSET = 130.1;
     private final String SERVICE_URL = "https://pkgstore.datahub.io/core/sea-level-rise/csiro_recons_gmsl_yr_2015_json/data/7a914a104e4360e3e364b111ed4aca40/csiro_recons_gmsl_yr_2015_json.json";
     private int selectedYear = LOWEST_YEAR;
 
@@ -34,6 +32,8 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
     private SeekBar yearSeekBar;
     private TextView yearTextView;
     private RequestQueue requestQueue;
+    private SeaLevelBar seaLevelBar;
+
     private ArrayList<SeaLevelData> seaLevelDataList = new ArrayList<>();
     private HashMap<Integer, Double> seaLevelDataMap = new HashMap<>();
 
@@ -44,6 +44,7 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sea_level_history);
 
+        seaLevelBar = findViewById(R.id.sea_level_bar);
         yearSeekBar = findViewById(R.id.year_seekBar);
         yearTextView = findViewById(R.id.year_textView);
         TextView testView = findViewById(R.id.test_tv);
@@ -59,8 +60,9 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
                 selectedYear = i + LOWEST_YEAR;
                 yearTextView.setText(Integer.toString(selectedYear));
                 if (seaLevelDataMap.size() != 0) {
-                    double gmsl = seaLevelDataMap.get(selectedYear);
+                    double gmsl = seaLevelDataMap.get(selectedYear) + OFFSET;
                     testView.setText(String.valueOf(gmsl));
+                    seaLevelBar.setCurrentHeight((float) gmsl);
                 }
             }
 
