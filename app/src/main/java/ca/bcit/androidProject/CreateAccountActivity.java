@@ -18,16 +18,24 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import ca.bcit.androidProject.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
-    EditText editEmail, editPassword;
-    Button btnRegister;
-    TextView tvLogin;
-    ProgressBar progressBar;
+    private static final String USER = "user";
+    private EditText editEmail, editPassword, editName;
+    private Button btnRegister;
+    private TextView tvLogin;
+    private ProgressBar progressBar;
 
-    FirebaseAuth fAuth;
+    private FirebaseAuth fAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
+    private User user;
+
 
 
     @Override
@@ -37,6 +45,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_create_account);
+        editName = findViewById(R.id.editName);
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
         btnRegister = findViewById(R.id.btnRegister);
@@ -44,11 +53,15 @@ public class CreateAccountActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
 
+        fAuth = FirebaseAuth.getInstance();
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = editEmail.getText().toString().trim();
                 String password = editPassword.getText().toString().trim();
+                String fullname = editName.getText().toString().trim();
+                String phone = " ";
 
                 if (TextUtils.isEmpty(email)) {
                     editEmail.setError("Email is required");
@@ -65,21 +78,39 @@ public class CreateAccountActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
 
+
+                progressBar.setVisibility(View.VISIBLE);
                 // register user
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(CreateAccountActivity.this, "User Created", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(), MainPageActivity.class));
+                            user = new User(fullname, email, phone);
+
+                            FirebaseDatabase.getInstance().getReference(USER)
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if(task.isSuccessful()) {
+
+                                        Toast.makeText(CreateAccountActivity.this, "User Created", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(getApplicationContext(), MainPageActivity.class));
+                                    }
+                                }
+                            });
+
+
                         } else {
                             Toast.makeText(CreateAccountActivity.this, "ERROR: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
+
+
             }
         });
 
@@ -97,5 +128,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             finish();
         }
     }
+
 
 }
