@@ -12,6 +12,12 @@
     android:orientation="vertical"
     tools:context="ca.bcit.androidProject.CausesFragment">
 
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        app:videoId="cXzfOpZSmk8"
+        app:autoPlay="true"
+        app:showYouTubeButton="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -27,71 +33,83 @@
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="76dp" />
 
-    <FrameLayout
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <VideoView
-            android:id="@+id/videoView"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        android:padding="5dp">
+
+
+        <TextView
+            android:id="@+id/InfoContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/sea_level_p1"
+            android:layout_centerHorizontal="true" />
 
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/InfoContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/sea_level_p1"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/InfoLinkContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/resources_title"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/InfoLinkContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/resources_title"
+            android:textAlignment="center"
+            android:layout_below="@+id/InfoContent"/>
 
 
-    <TextView
-        android:id="@+id/InfoLinkContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/nasa_link"
-        android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/InfoLinkContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/nasa_link"
+            android:textAlignment="textStart"
+            android:layout_below="@+id/InfoLinkContainer"/>
 
-    <TextView
-        android:id="@+id/InfoLinkContent2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/ocean_link"
-        android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/InfoLinkContent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/ocean_link"
+            android:textAlignment="textStart"
+            android:layout_below="@+id/InfoLinkContent"/>
 
-    <TextView
-        android:id="@+id/InfoLinkContent3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/natGeo_link"
-        android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/InfoLinkContent3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/natGeo_link"
+            android:textAlignment="textStart"
+            android:layout_below="@+id/InfoLinkContent2"/>
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

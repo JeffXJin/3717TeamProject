@@ -14,212 +14,337 @@
     tools:context="ca.bcit.androidProject.CausesFragment">
 
 
-    <TextView
-        android:id="@+id/textView3"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="11dp"
-        android:text="@string/causes_title"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="76dp" />
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
 
-    <TextView
-        android:id="@+id/causesContent1"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        android:padding="5dp">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="11dp"
+            android:text="@string/causes_title"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/causesContent1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_p1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView3"/>
+
+
+        <TextView
+            android:id="@+id/causesContent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/causes_p2"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/causesContent1"/>
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_p1"
-        android:textAlignment="center" />
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
 
-    <TextView
-        android:id="@+id/causesContent2"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_700"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/causesContent_ice_melt"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/causes_ice_melt"
+                android:textColor="@color/white"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/melting_glacier"
+                android:layout_below="@+id/causesContent_ice_melt"/>
+
+            <TextView
+                android:id="@+id/causesContent3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:text="@string/causes_ice_melt1"
+
+                android:textColor="@color/white"
+                android:layout_below="@+id/imageView4"/>
+
+            <TextView
+                android:id="@+id/causesContent4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/causes_ice_melt2"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:layout_below="@+id/causesContent3"/>
+
+        </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_p2"
-        android:textAlignment="center" />
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
 
-    <TextView
-        android:id="@+id/causesContent_ice_melt"
-        android:textStyle="bold"
-        android:textSize="20sp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/causesContent_thermal"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_thermal"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textAlignment="center" />
+
+
+        <ImageView
+            android:id="@+id/thermal"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:src="@drawable/forest_fire"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/causesContent_thermal"/>
+
+        <TextView
+            android:id="@+id/causesContent5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_thermal_p1"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/thermal"/>
+
+        <TextView
+            android:id="@+id/causesContent6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/causes_thermal_p2"
+           android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/causesContent5"/>
+
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_ice_melt"
-        android:textAlignment="center" />
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="150dp"
-        android:src="@drawable/melting_glacier" />
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        android:padding="5dp">
 
 
-    <TextView
-        android:id="@+id/causesContent3"
+
+        <TextView
+            android:id="@+id/causesContent_land"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_land"
+            android:textAlignment="center"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/land"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:src="@drawable/land_sinkage"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/causesContent_land"/>
+
+
+        <TextView
+            android:id="@+id/causesContent_land_p1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_land_p1"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/land"/>
+
+
+
+        <TextView
+            android:id="@+id/causesContent_land_p2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/causes_land_p2"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/causesContent_land_p1"/>
+
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_ice_melt1"
-        android:textAlignment="center" />
+        android:layout_margin="3dp"
+        app:cardCornerRadius="15dp">
 
-    <TextView
-        android:id="@+id/causesContent4"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_ice_melt2"
-        android:textAlignment="center" />
-
-
-    <TextView
-        android:id="@+id/causesContent_thermal"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_thermal"
-        android:textAlignment="center" />
-
-    <ImageView
-        android:id="@+id/thermal"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="150dp"
-        android:src="@drawable/forest_fire" />
-
-    <TextView
-        android:id="@+id/causesContent5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_thermal_p1"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/causesContent6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_thermal_p2"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/causesContent_land"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_land"
-        android:textAlignment="center" />
-
-    <ImageView
-        android:id="@+id/land"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="150dp"
-        android:src="@drawable/land_sinkage" />
-
-
-    <TextView
-        android:id="@+id/causesContent_land_p1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_land_p1"
-        android:textAlignment="center" />
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        android:padding="5dp">
 
 
 
-    <TextView
-        android:id="@+id/causesContent_land_p2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_land_p2"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/causesContent_gulf"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_gulf"
+            android:textAlignment="center"
+            android:textColor="@color/white"/>
 
 
-    <TextView
-        android:id="@+id/causesContent_gulf"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_gulf"
-        android:textAlignment="center" />
+        <ImageView
+            android:id="@+id/gulf"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gulf"
+            android:layout_below="@+id/causesContent_gulf"/>
 
 
-    <ImageView
-        android:id="@+id/gulf"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="150dp"
-        android:src="@drawable/gulf" />
+        <TextView
+            android:id="@+id/causesContent_gulf_p1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/causes_gulf_p1"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/gulf"/>
 
+        <TextView
+            android:id="@+id/causesContent_gulf_p2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/causes_gulf_p2"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/causesContent_gulf_p1"/>
 
-    <TextView
-        android:id="@+id/causesContent_gulf_p1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/causes_gulf_p1"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/causesContent_gulf_p2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/causes_gulf_p2"
-        android:textAlignment="center" />
-
-
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
-
-
 
 </ScrollView>

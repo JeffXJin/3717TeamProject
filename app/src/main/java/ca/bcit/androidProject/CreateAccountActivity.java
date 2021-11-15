@@ -62,6 +62,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 String password = editPassword.getText().toString().trim();
                 String fullname = editName.getText().toString().trim();
                 String phone = " ";
+                String image = " ";
 
                 if (TextUtils.isEmpty(email)) {
                     editEmail.setError("Email is required");
@@ -86,7 +87,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            user = new User(fullname, email, phone);
+                            user = new User(fullname, email, phone,image);
 
                             FirebaseDatabase.getInstance().getReference(USER)
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

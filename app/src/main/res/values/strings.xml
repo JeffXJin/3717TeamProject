@@ -58,10 +58,10 @@
 
 
     <!--    profile card strings               -->
-    <string name="email">Email: </string>
-    <string name="phone">Phone number: </string>
+    <string name="email">Email </string>
+    <string name="phone">Phone number </string>
     <string name="edit">Edit </string>
-    <string name="location">Location: </string>
+    <string name="location">Location </string>
     <string name="donation">Donated </string>
 
     <!--    Gloabal Map strings              -->
@@ -137,5 +137,6 @@
     <string name="slr_green"><![CDATA[SLR: > 2]]></string>
     <string name="sea_rise_level_rate_title">Rate of Sea Rise Levels</string>
     <string name="location_string">Location: </string>
+    <string name="save_txt">Save</string>
 
 </resources>
