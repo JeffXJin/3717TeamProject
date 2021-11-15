@@ -63,10 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         statesList = new ArrayList<States>();
 
-        requestQueue = Volley.newRequestQueue(this);
-        queueParseJSON();
-
-        ca.bcit.androidProject.databinding.ActivityMapsBinding binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        ActivityMapsBinding binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -75,6 +72,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
+
+        requestQueue = Volley.newRequestQueue(this);
+        queueParseJSON();
     }
 
     @Override
@@ -112,7 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), GREEN_ZONE))));
                     } else if (slr > 1 && slr <= 2) {
                         mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), YELLOW_ZONE))));
-                    } else {
+                    } else if (slr > 2) {
                         mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), RED_ZONE))));
                     }
                 }
