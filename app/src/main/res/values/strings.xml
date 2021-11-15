@@ -132,5 +132,10 @@
 
 
     <string name="email_receipt">Email Receipt</string>
+    <string name="slr_red"><![CDATA[SLR: < 1]]></string>
+    <string name="slr_yellow">SLR: 1 - 2</string>
+    <string name="slr_green"><![CDATA[SLR: > 2]]></string>
+    <string name="sea_rise_level_rate_title">Rate of Sea Rise Levels</string>
+    <string name="location_string">Location: </string>
 
 </resources>
