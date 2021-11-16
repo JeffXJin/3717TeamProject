@@ -93,7 +93,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         System.out.println("Areas found: " + statesList.size());
         for (int i = 0; i < statesList.size(); i++) {
-            System.out.println("Area names: " + statesList.get(i).getStateName());
+           // System.out.println("Area names: " + statesList.get(i).getStateName());
             location = statesList.get(i).getStateName();
             float slr = Float.parseFloat(statesList.get(i).getSlrRate());
 
@@ -104,8 +104,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (!addressList.isEmpty()) {
                     Address adr = addressList.get(0);
 
-                    System.out.println("Address: " + adr);
-                    System.out.println("SLR: " + slr);
+//                    System.out.println("Address: " + adr);
+//                    System.out.println("SLR: " + slr);
                     LatLng latLng = new LatLng(adr.getLatitude(), adr.getLongitude());
 
                     if (slr <= 1) {

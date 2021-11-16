@@ -133,5 +133,7 @@
 
     <string name="email_receipt">Email Receipt</string>
     <string name="save_txt">Save</string>
+    <string name="stateName">"Location: "</string>
+    <string name="sea_level_mm">"Sea level Rise in mm: "</string>
 
 </resources>

@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dip"
+                android:text="@string/stateName"
                 android:paddingBottom="5dip" />
 
             <TextView
@@ -37,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dip"
+                android:text="@string/sea_level_mm"
                 android:paddingBottom="5dip" />
         </LinearLayout>
 

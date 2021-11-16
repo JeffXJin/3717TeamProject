@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2328125" />
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717AndroidProject/app/src/main/res/layout/activity_create_account.xml" value="0.8333333333333334" />
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717AndroidProject/app/src/main/res/layout/activity_maps.xml" value="0.7333333333333334" />
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717TeamProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12395833333333334" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717TeamProject/app/src/main/res/layout/fragment_causes.xml" value="0.27747551686615884" />
         <entry key="..\:/Users/JeffX/Desktop/BCIT/COMP 3717/Android Studio/3717TeamProject/app/src/main/res/layout/fragment_maps.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/drawable/cardview_layout.xml" value="0.23402777777777778" />
+        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.17916666666666667" />
         <entry key="app/src/main/res/drawable/custom_input_field.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.275390625" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.175" />
@@ -30,9 +32,12 @@
         <entry key="app/src/main/res/drawable/profilebar.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable/toolbar.xml" value="0.2703125" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_global_sea_level.xml" value="0.15289575289575288" />
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.158984375" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sea_level_history.xml" value="0.15289575289575288" />
+        <entry key="app/src/main/res/layout/activity_state.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.258203125" />
         <entry key="app/src/main/res/layout/fragment_causes.xml" value="0.258203125" />
         <entry key="app/src/main/res/layout/fragment_more_info.xml" value="0.158984375" />

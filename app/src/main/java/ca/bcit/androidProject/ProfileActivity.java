@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private TextView mButtonChooseImage;
-    private Button mButtonEdit;
+    private Button mButtonSave;
 
     private CircleImageView mImageView;
     private ProgressBar mProgressBar;
@@ -70,12 +71,13 @@ public class ProfileActivity extends AppCompatActivity {
     private Uri mImageUri;
 
 
-    private String fullname;
+    private String fullName;
     private String email;
     private String phone;
     private String imageUrl;
 
     private User userProfile;
+
 
 
 
@@ -112,21 +114,23 @@ public class ProfileActivity extends AppCompatActivity {
         TextView emailTextView = (TextView) findViewById(R.id.user_email);
         TextView phoneTextView = (TextView) findViewById(R.id.user_phone);
 
+        mProgressBar = findViewById(R.id.progress_bar);
+        mProgressBar.setVisibility(View.INVISIBLE);
+
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userProfile = snapshot.getValue(User.class);
 
                 if (userProfile != null) {
-                    fullname = userProfile.getName();
+                    fullName = userProfile.getName();
                     email = userProfile.getEmail();
                     phone = userProfile.getPhone();
                     imageUrl = userProfile.getImage();
 
-                    fullNameTextView.setText(fullname);
+                    fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
-
 
                 }
             }
@@ -139,10 +143,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Image upload codes in on create method ///
         mButtonChooseImage = findViewById(R.id.edit_image);
-        mButtonEdit = findViewById(R.id.save_image);
+        mButtonSave = findViewById(R.id.save_image);
         mImageView = findViewById(R.id.profile_image);
         mProgressBar = findViewById(R.id.progress_bar);
-        mButtonEdit.setVisibility(View.INVISIBLE);
+        mButtonSave.setVisibility(View.INVISIBLE);
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,7 +155,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        mButtonEdit.setOnClickListener(new View.OnClickListener() {
+        mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
@@ -159,7 +163,6 @@ public class ProfileActivity extends AppCompatActivity {
                 } else {
                     uploadFile();
                 }
-
             }
         });
     }
@@ -176,48 +179,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void uploadFile() {
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
 
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mProgressBar.setProgress(0);
-                                }
-                            }, 500);
-
-                            Toast.makeText(ProfileActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
-                            imageUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-                            userProfile = new User(fullname,email,phone, imageUrl);
-
-                           String uploadId = reference.push().getKey();
-                           reference.child(uploadId).setValue(user);
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            mProgressBar.setProgress((int)progress);
-                        }
-                    });
-        } else {
-            Toast.makeText(this, "No File selected", Toast.LENGTH_SHORT).show();
-        }
     }
+
+
 
     /**
      * Method that will allow device to open image folder directly
@@ -245,7 +210,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             Picasso.get().load(mImageUri).into(mImageView);
 
-            mButtonEdit.setVisibility(View.VISIBLE);
+            mButtonSave.setVisibility(View.VISIBLE);
         }
     }
 
