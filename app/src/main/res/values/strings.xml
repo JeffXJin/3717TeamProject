@@ -19,12 +19,9 @@
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="logout_text">Logout</string>
 
-
-
-
     <!--    SeaLevelHistoryActivity-->
     <string name="year_text">Year</string>
-    <string name="global_sea_level_text">The pace of ...</string>
+    <string name="global_sea_level_text">The pace of …</string>
     <string name="year">year</string>
     <string name="cm">(cm)</string>
     <string name="_0">0-</string>
@@ -64,7 +61,7 @@
     <string name="location">Location </string>
     <string name="donation">Donated </string>
 
-    <!--    Gloabal Map strings              -->
+    <!--    Global Map strings              -->
     <string name="zoomOut">-</string>
     <string name="zoomIn">+</string>
 
@@ -132,6 +129,11 @@
 
 
     <string name="email_receipt">Email Receipt</string>
+    <string name="slr_red"><![CDATA[SLR: < 1]]></string>
+    <string name="slr_yellow">SLR: 1 – 2</string>
+    <string name="slr_green"><![CDATA[SLR: > 2]]></string>
+    <string name="sea_rise_level_rate_title">Rate of Sea Rise Levels</string>
+    <string name="location_string">Location: </string>
     <string name="save_txt">Save</string>
     <string name="stateName">"Location: "</string>
     <string name="sea_level_mm">"Sea level Rise in mm: "</string>
