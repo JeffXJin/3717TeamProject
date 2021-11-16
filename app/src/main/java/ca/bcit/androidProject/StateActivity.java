@@ -21,10 +21,10 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 
 public class StateActivity extends AppCompatActivity {
-    private String TAG = StateActivity.class.getSimpleName();
+    private static final String TAG = StateActivity.class.getSimpleName();
     private RecyclerView _recyclerView;
     private ArrayList<States> _toonsList;
-    private static String SERVICE_URL = "https://sea-level-rise-data.herokuapp.com/api/v1/stations";
+    private static final String SERVICE_URL = "https://sea-level-rise-data.herokuapp.com/api/v1/stations";
 
     private RecyclerAdapter _recyclerAdapter;
     private RequestQueue _requestQueue;

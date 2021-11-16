@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainPageActivity extends AppCompatActivity {
 
-    TextView tvLogout;
+    MenuItem tvLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class MainPageActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
     }
 

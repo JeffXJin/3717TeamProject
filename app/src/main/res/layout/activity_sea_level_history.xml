@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="ca.bcit.androidProject.SeaLevelHistoryActivity">
 
@@ -24,7 +25,8 @@
     <ca.bcit.androidProject.SeaLevelBar
         android:id="@+id/sea_level_bar"
         android:layout_width="wrap_content"
-        android:layout_height="400dp" />
+        android:layout_height="400dp"
+        app:radius="30dp"/>
 
     <SeekBar
         android:id="@+id/year_seekBar"
