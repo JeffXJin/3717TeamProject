@@ -1,21 +1,23 @@
 package ca.bcit.androidProject;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +29,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,9 +40,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import ca.bcit.androidProject.databinding.ActivityMapsBinding;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -75,6 +77,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         requestQueue = Volley.newRequestQueue(this);
         queueParseJSON();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("Sea Level Global Map");
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -84,9 +95,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng van = new LatLng(49.2578263, -123.1939441);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(van));
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 
     public void onSearch() throws IOException {
+        final ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
         List<Address> addressList;
 
         String location;
@@ -101,6 +116,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             try {
                 addressList = geocoder.getFromLocationName(location, 1);
+
+                // Check if JSON data location has a valid address
                 if (!addressList.isEmpty()) {
                     Address adr = addressList.get(0);
 
@@ -121,6 +138,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
         }
+
+        progressBar.setVisibility(View.INVISIBLE);
+
+        TextView textView = findViewById(R.id.loading_text);
+        textView.setText("Displaying SLR data for " + statesList.size() + " locations");
 //        String location = statesList.get(1).getStateName();
 //        float slr = Float.parseFloat(statesList.get(1).getSlrRate());
 //        Geocoder geocoder = new Geocoder(this);

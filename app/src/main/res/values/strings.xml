@@ -138,5 +138,6 @@
     <string name="sea_rise_level_rate_title">Rate of Sea Rise Levels</string>
     <string name="location_string">Location: </string>
     <string name="save_txt">Save</string>
+    <string name="map_text">Swipe or drag around the map to view the rates of sea levels across the coastlines of North America</string>
 
 </resources>

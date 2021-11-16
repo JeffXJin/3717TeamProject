@@ -38,10 +38,12 @@
         <activity
             android:name=".MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".MainPageActivity"/>
         <activity
             android:name=".StateActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".MainPageActivity"/>
         <activity
             android:name=".GlobalSeaLevelActivity"
             android:exported="true" />

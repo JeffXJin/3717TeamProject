@@ -1,6 +1,8 @@
 package ca.bcit.androidProject;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -43,6 +45,15 @@ public class StateActivity extends AppCompatActivity {
 
         _requestQueue = Volley.newRequestQueue(this);
         queueParseJSON();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("Sea Level Rise Data");
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void queueParseJSON() {
