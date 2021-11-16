@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="top"
             android:scaleType="center"
-            android:src="@drawable/rise_in_sea_level_background_bitmap"
+            android:src="@drawable/rise_in_sea_level_background"
             android:tileMode="disabled" />
 
         <TextView

@@ -32,7 +32,9 @@
         <entry key="app/src/main/res/drawable/profile_card.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable/profilebar.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable/toolbar.xml" value="0.2703125" />
+        <entry key="app/src/main/res/layout-v28/activity_credit_form.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_credit_form.xml" value="0.25078125" />
         <entry key="app/src/main/res/layout/activity_global_sea_level.xml" value="0.15289575289575288" />
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.158984375" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.25" />
@@ -41,6 +43,7 @@
         <entry key="app/src/main/res/layout/activity_state.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.258203125" />
         <entry key="app/src/main/res/layout/fragment_causes.xml" value="0.258203125" />
+        <entry key="app/src/main/res/layout/fragment_contribute.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_more_info.xml" value="0.158984375" />
         <entry key="app/src/main/res/layout/fragment_prevention.xml" value="0.158984375" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.258203125" />
