@@ -134,8 +134,6 @@ public class ProfileActivity extends AppCompatActivity {
         emailTextView = (TextView) findViewById(R.id.user_email);
         phoneTextView = (TextView) findViewById(R.id.user_phone);
 
-        mProgressBar = findViewById(R.id.progress_bar);
-        mProgressBar.setVisibility(View.INVISIBLE);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -170,7 +168,6 @@ public class ProfileActivity extends AppCompatActivity {
         mButtonChooseImage = findViewById(R.id.edit_image);
         mButtonSave = findViewById(R.id.save_image);
         mImageView = findViewById(R.id.profile_image);
-        mProgressBar = findViewById(R.id.progress_bar);
         mButtonSave.setVisibility(View.INVISIBLE);
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override

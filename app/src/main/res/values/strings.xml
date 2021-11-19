@@ -146,5 +146,6 @@
     <string name="content_contribute1">Sea++ have partnered with Sea Level Rise Foundation. This foundation aims to provide a mechanism for leveraging global attention on the impacts of climate change on small island states and other low-lying areas.</string>
     <string name="content_contribute2">Sea++ app aims to support platform for the exchange, research and technologies to address adaptation to sea level rise.</string>
     <string name="map_text">Swipe or drag around the map to view the rates of sea levels across the coastlines of North America</string>
+    <string name="prompt">Slide the bar to the right to show sea level rise corresponds to the year.</string>
 
 </resources>
