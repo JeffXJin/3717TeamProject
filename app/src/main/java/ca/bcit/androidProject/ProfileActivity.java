@@ -5,20 +5,27 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +59,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
     private FirebaseUser user;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
@@ -60,25 +66,22 @@ public class ProfileActivity extends AppCompatActivity {
     private StorageTask mUploadTask;
 
     private String userID;
-
     private static final int PICK_IMAGE_REQUEST = 1;
     private TextView mButtonChooseImage;
     private Button mButtonSave;
-
     private CircleImageView mImageView;
     private ProgressBar mProgressBar;
-
     private Uri mImageUri;
-
-
     private String fullName;
     private String email;
     private String phone;
     private String imageUrl;
-
     private User userProfile;
 
-
+    private Button editProfile;
+    private TextView fullNameTextView;
+    private TextView emailTextView;
+    private TextView phoneTextView;
 
 
     @Override
@@ -108,15 +111,31 @@ public class ProfileActivity extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference("user");
 
 
+        uploadToFirebase();
+
+        editProfile = findViewById(R.id.edit);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showUpdateDialog(fullName, email, phone);
+            }
+        });
+
+
+
+
+    }
+
+    public void uploadToFirebase() {
 
         // Display user name, email and default blank phone number codes//
-        TextView fullNameTextView = (TextView) findViewById(R.id.user_name);
-        TextView emailTextView = (TextView) findViewById(R.id.user_email);
-        TextView phoneTextView = (TextView) findViewById(R.id.user_phone);
+        fullNameTextView = (TextView) findViewById(R.id.user_name);
+        emailTextView = (TextView) findViewById(R.id.user_email);
+        phoneTextView = (TextView) findViewById(R.id.user_phone);
 
         mProgressBar = findViewById(R.id.progress_bar);
         mProgressBar.setVisibility(View.INVISIBLE);
-
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -131,6 +150,12 @@ public class ProfileActivity extends AppCompatActivity {
                     fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
+
+                    // this should be code to retrieve image URL from firebase and
+                    // assign it to imageView
+                    //Picasso.get().load(imageUrl).into(mImageView);
+
+                    System.out.println("---------------------");
 
                 }
             }
@@ -180,6 +205,43 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadFile() {
 
+        if(mImageUri != null) {
+
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading");
+            progressDialog.show();
+
+            StorageReference sRef = mStorageRef.child(userID + "." + getFileExtension(mImageUri));
+
+            sRef.putFile(mImageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    progressDialog.dismiss();
+
+                    Toast.makeText(getApplicationContext(), "File Upload", Toast.LENGTH_SHORT).show();
+                    String imageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
+                    User user = new User(fullName,email,phone, imageUrl);
+
+
+                    reference.child(userID).setValue(user);
+                    mButtonSave.setVisibility(View.INVISIBLE);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Failed to upload", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+
+                }
+            });
+        }
     }
 
 
@@ -236,5 +298,91 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+
+    /**
+     * This method will update the firebase database
+     * @param Username as string for user name
+     * @param email as string for user email
+     * @param phone as string for phone number
+     */
+    private void updateUser(String Username, String email, String phone) {
+        DatabaseReference dbRef = reference.child(userID);
+
+        User user = new User(Username,email,phone, imageUrl);
+
+        Task setValueTask = dbRef.setValue(user);
+
+        setValueTask.addOnSuccessListener(new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+                Toast.makeText(ProfileActivity.this,
+                        "Your profile is Updated.",Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(ProfileActivity.this, ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
+        setValueTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ProfileActivity.this,
+                        "Something went wrong.\n" + e.toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+    private void showUpdateDialog(String userName, String email, String phone) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View dialogView = inflater.inflate(R.layout.update_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextUserName = dialogView.findViewById(R.id.editTextUserName);
+        editTextUserName.setText(userName);
+
+        final EditText editTextEmail = dialogView.findViewById(R.id.editTextEmail);
+        editTextEmail.setText(email);
+
+        final EditText editTextPhoneNumber = dialogView.findViewById(R.id.editPhoneNumber);
+        editTextPhoneNumber.setText(phone);
+
+
+        final Button btnUpdate = dialogView.findViewById(R.id.btnUpdate);
+
+        dialogBuilder.setTitle("Change profile information");
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userName = editTextUserName.getText().toString().trim();
+                String email = editTextEmail.getText().toString().trim();
+                String phone = editTextPhoneNumber.getText().toString().trim();
+
+                if (TextUtils.isEmpty(userName)) {
+                    editTextUserName.setError("User Name is required");
+                    return;
+                } else if (TextUtils.isEmpty(email)) {
+                    editTextEmail.setError("email is required");
+                    return;
+                }
+
+                updateUser(userName, email, phone);
+
+                alertDialog.dismiss();
+            }
+        });
+
+
     }
 }
