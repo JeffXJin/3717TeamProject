@@ -62,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
+    private DatabaseReference donatedRef;
     private StorageReference mStorageRef;
     private StorageTask mUploadTask;
 
@@ -77,11 +78,13 @@ public class ProfileActivity extends AppCompatActivity {
     private String phone;
     private String imageUrl;
     private User userProfile;
+    private Donation donate;
 
     private Button editProfile;
     private TextView fullNameTextView;
     private TextView emailTextView;
     private TextView phoneTextView;
+    private TextView donationTextView;
 
 
     @Override
@@ -104,10 +107,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("user");
+        donatedRef = FirebaseDatabase.getInstance().getReference("donation");
         userID = user.getUid();
 
         mStorageRef = FirebaseStorage.getInstance().getReference("user");
-
 
         uploadToFirebase();
 
@@ -132,6 +135,25 @@ public class ProfileActivity extends AppCompatActivity {
         fullNameTextView = (TextView) findViewById(R.id.user_name);
         emailTextView = (TextView) findViewById(R.id.user_email);
         phoneTextView = (TextView) findViewById(R.id.user_phone);
+        donationTextView = (TextView) findViewById(R.id.donated_amount);
+
+        donatedRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                donate = snapshot.getValue(Donation.class);
+                assert donate != null;
+                String amount = donate.getDonation();
+                String display_amount = "$ " + amount;
+                donationTextView.setText(display_amount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileActivity.this, "Cannot display the donated amount information",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -148,8 +170,6 @@ public class ProfileActivity extends AppCompatActivity {
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
 
-                    // this should be code to retrieve image URL from firebase and
-                    // assign it to imageView
                     Picasso.get().load(imageUrl).into(mImageView);
 
 
@@ -390,6 +410,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
+    /**
+     * Onclick function that directs user to the credit form activity.
+     */
+    public void onDonationClick(View view) {
+        Intent intent = new Intent(ProfileActivity.this, CreditFormActivity.class);
+        startActivity(intent);
+    }
+
 }
