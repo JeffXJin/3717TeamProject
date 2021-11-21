@@ -102,8 +102,6 @@ public class ProfileActivity extends AppCompatActivity {
         // sets the title to the toolbar
         getSupportActionBar().setTitle("Profile");
 
-
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("user");
         userID = user.getUid();
@@ -123,10 +121,11 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-
-
     }
 
+    /**
+     * Helper function that will be called to upload images to Firebase
+     */
     public void uploadToFirebase() {
 
         // Display user name, email and default blank phone number codes//
@@ -151,9 +150,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                     // this should be code to retrieve image URL from firebase and
                     // assign it to imageView
-                    //Picasso.get().load(imageUrl).into(mImageView);
+                    Picasso.get().load(imageUrl).into(mImageView);
 
-                    System.out.println("---------------------");
 
                 }
             }
@@ -200,6 +198,9 @@ public class ProfileActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    /**
+     * This method uploads image
+     */
     private void uploadFile() {
 
         if(mImageUri != null) {
@@ -216,12 +217,16 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progressDialog.dismiss();
 
+                    sRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            final String downloadUrl =  uri.toString();
+
+                            User user = new User(fullName,email,phone, downloadUrl);
+                            reference.child(userID).setValue(user);
+                        }
+                    });
                     Toast.makeText(getApplicationContext(), "File Upload", Toast.LENGTH_SHORT).show();
-                    String imageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
-                    User user = new User(fullName,email,phone, imageUrl);
-
-
-                    reference.child(userID).setValue(user);
                     mButtonSave.setVisibility(View.INVISIBLE);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -333,7 +338,12 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * This method will show a dialog to allow user to edit their email and name
+     * @param userName user name
+     * @param email user email
+     * @param phone user phone number
+     */
     private void showUpdateDialog(String userName, String email, String phone) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
