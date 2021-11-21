@@ -162,8 +162,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="@string/donation"
-            app:drawableStartCompat="@drawable/ic_dollar" />
+            android:textAlignment="center"
+            android:text="@string/donation" />
 
         <TextView
             android:id="@+id/donated_amount"
@@ -174,17 +174,18 @@
             android:textAlignment="center"
             android:text="" />
 
+
         <Button
-            android:id="@+id/email_receipt"
-            android:layout_gravity="end"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:id="@+id/donate_btn"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:background="@drawable/custom_button"
             android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:text="@string/email_receipt"
+            android:layout_marginTop="3dp"
+            android:text="@string/donate_now"
+            android:onClick="onDonationClick"
             android:textAllCaps="false"/>
-
     </LinearLayout>
 
 

@@ -10,16 +10,28 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.braintreepayments.cardform.view.CardForm;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class CreditFormActivity extends AppCompatActivity {
 
-
+    String donatedAmount;
     CardForm cardForm;
     Button donate;
     AlertDialog.Builder alertBuilder;
+
+    private FirebaseUser user;
+    private FirebaseAuth mAuth;
+    private DatabaseReference reference;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +46,9 @@ public class CreditFormActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+
+
 
 
         cardForm = findViewById(R.id.card_form);
@@ -62,7 +77,20 @@ public class CreditFormActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
                             Toast.makeText(CreditFormActivity.this, "Thank you for your donation!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(CreditFormActivity.this, ContributeFragment.class);
+
+                            final EditText amount = findViewById(R.id.editAmount);
+                            donatedAmount = amount.getText().toString().trim();
+
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            reference = FirebaseDatabase.getInstance().getReference("donation");
+                            userID = user.getUid();
+
+                            Donation donation = new Donation(userID, donatedAmount);
+
+                            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(donation);
+
+                            Intent intent = new Intent(CreditFormActivity.this, ProfileActivity.class);
                             startActivity(intent);
                         }
                     });
