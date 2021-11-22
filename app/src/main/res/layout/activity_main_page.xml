@@ -8,121 +8,132 @@
     android:id="@+id/drawer_layout"
     tools:context="ca.bcit.androidProject.MainPageActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/pagebackground"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+        android:fillViewport="true">
 
-        <FrameLayout
-            android:id="@+id/content_frame"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@drawable/pagebackground"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar" />
+
+            <FrameLayout
+                android:id="@+id/content_frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:elevation="4dp"
-                    app:lottie_rawRes="@raw/sealevel_logo"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"/>
-
-
-                <Button
-                    android:id="@+id/global_map_button"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/global_btn"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:elevation="4dp"
-                    android:onClick="onGlobalSeaLevelClick"
-                    android:text="@string/global_map_button_text"
-                    android:textColor="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sea_level_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:elevation="4dp"
-                    android:text="@string/sea_level_button_text"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:onClick="onSeaLevelClick"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@drawable/sea_btn" />
-
-                <Button
-                    android:id="@+id/information_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:elevation="4dp"
-                    android:text="@string/information_button_text"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:onClick="onInformationClick"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@drawable/inform_btn"/>
-
-                <Button
-                    android:id="@+id/viewStates"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:elevation="4dp"
-                    android:text="@string/view_slr_data"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:onClick="onViewStatesClick"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@drawable/slr_btn"/>
-
-            </LinearLayout>
-        </FrameLayout>
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:elevation="4dp"
+                        app:lottie_rawRes="@raw/sealevel_logo"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"/>
 
 
-    </LinearLayout>
+                    <Button
+                        android:id="@+id/global_map_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/global_btn"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:elevation="4dp"
+                        android:onClick="onGlobalSeaLevelClick"
+                        android:text="@string/global_map_button_text"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/sea_level_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:elevation="4dp"
+                        android:text="@string/sea_level_button_text"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:onClick="onSeaLevelClick"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/sea_btn" />
+
+                    <Button
+                        android:id="@+id/information_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:elevation="4dp"
+                        android:text="@string/information_button_text"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:onClick="onInformationClick"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/inform_btn"/>
+
+                    <Button
+                        android:id="@+id/viewStates"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:elevation="4dp"
+                        android:text="@string/view_slr_data"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:onClick="onViewStatesClick"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/slr_btn"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

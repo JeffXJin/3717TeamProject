@@ -14,7 +14,8 @@
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         app:videoId="cXzfOpZSmk8"
-        app:autoPlay="true"
+        app:autoPlay="false"
+        app:useWebUi="true"
         app:showYouTubeButton="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

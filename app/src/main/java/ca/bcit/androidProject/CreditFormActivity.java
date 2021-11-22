@@ -81,12 +81,12 @@ public class CreditFormActivity extends AppCompatActivity {
                             final EditText amount = findViewById(R.id.editAmount);
                             donatedAmount = amount.getText().toString().trim();
 
+
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             reference = FirebaseDatabase.getInstance().getReference("donation");
                             userID = user.getUid();
 
                             Donation donation = new Donation(userID, donatedAmount);
-
                             reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(donation);
 
@@ -102,7 +102,6 @@ public class CreditFormActivity extends AppCompatActivity {
                     });
                     AlertDialog alertDialog = alertBuilder.create();
                     alertDialog.show();
-
                 } else {
                     Toast.makeText(CreditFormActivity.this, "Please complete the form", Toast.LENGTH_LONG).show();
                 }

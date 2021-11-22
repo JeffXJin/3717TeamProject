@@ -143,14 +143,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         TextView textView = findViewById(R.id.loading_text);
         textView.setText("Displaying SLR data for " + statesList.size() + " locations");
-//        String location = statesList.get(1).getStateName();
-//        float slr = Float.parseFloat(statesList.get(1).getSlrRate());
-//        Geocoder geocoder = new Geocoder(this);
-//        addressList = geocoder.getFromLocationName(location, 1);
-//        Address adr = addressList.get(0);
-//        LatLng latLng = new LatLng(adr.getLatitude(), adr.getLongitude());
-//        mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), GREEN_ZONE))));
-
     }
 
     private void queueParseJSON() {

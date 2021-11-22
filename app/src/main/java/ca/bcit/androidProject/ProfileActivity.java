@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.exifinterface.media.ExifInterface;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -141,10 +142,14 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 donate = snapshot.getValue(Donation.class);
-                assert donate != null;
-                String amount = donate.getDonation();
-                String display_amount = "$ " + amount;
-                donationTextView.setText(display_amount);
+
+                if (donate != null) {
+
+                    String amount = donate.getDonation();
+                    String display_amount = "$ " + amount;
+                    donationTextView.setText(display_amount);
+
+                }
             }
 
             @Override
