@@ -21,7 +21,6 @@
 
     <!--    SeaLevelHistoryActivity-->
     <string name="year_text">Year</string>
-    <string name="global_sea_level_text">The pace of …</string>
     <string name="year">year</string>
     <string name="cm">(cm)</string>
     <string name="_0">0-</string>
@@ -32,8 +31,10 @@
     <string name="_8">8-</string>
     <string name="_1900">1900</string>
     <string name="_2000">2000</string>
-    <string name="globalMeanLabel">G\nL\nO\nB\nA\nL\n\nM\nE\nA\nN\n\nS\nE\nA\n\nL\nE\nV\nE\nL</string>
     <string name="sea_level_units">mm</string>
+    <string name="prompt">Slide the bar to show the global mean sea level relative to year 1900.</string>
+    <string name="sea_level_mm">"Sea level Rise in mm: "</string>
+    <string name="history_action_bar_text">Sea Level History</string>
 
 
     <string name="info">Information</string>
@@ -136,7 +137,6 @@
     <string name="location_string">Location: </string>
     <string name="save_txt">Save</string>
     <string name="stateName">"Location: "</string>
-    <string name="sea_level_mm">"Sea level Rise in mm: "</string>
     <string name="ten_bucks">$10</string>
     <string name="fifteen_bucks">$15</string>
     <string name="twenty_bucks">$20</string>
@@ -146,6 +146,5 @@
     <string name="content_contribute1">Sea++ have partnered with Sea Level Rise Foundation. This foundation aims to provide a mechanism for leveraging global attention on the impacts of climate change on small island states and other low-lying areas.</string>
     <string name="content_contribute2">Sea++ app aims to support platform for the exchange, research and technologies to address adaptation to sea level rise.</string>
     <string name="map_text">Swipe or drag around the map to view the rates of sea levels across the coastlines of North America</string>
-    <string name="prompt">Slide the bar to the right to show sea level rise corresponds to the year.</string>
 
 </resources>

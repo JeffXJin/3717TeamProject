@@ -20,13 +20,25 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
+
+/*
+Activity that shows how the global mean sea level has changed through the years.
+ */
 
 public class SeaLevelHistoryActivity extends AppCompatActivity {
+    // The base year
     private static final int LOWEST_YEAR = 1900;
-    private static final int YEAR_RANGE = 2013 - LOWEST_YEAR;
+    // The final year in our data set
+    private static final int HIGHEST_YEAR = 2013;
+    private static final int YEAR_RANGE = HIGHEST_YEAR - LOWEST_YEAR;
+    // The offset that makes the global mean sea level 0 for year 1900
     private final double OFFSET = 130.1;
+    // The source of our data
     private final String SERVICE_URL = "https://pkgstore.datahub.io/core/sea-level-rise/csiro_recons_gmsl_yr_2015_json/data/7a914a104e4360e3e364b111ed4aca40/csiro_recons_gmsl_yr_2015_json.json";
     private int selectedYear = LOWEST_YEAR;
+    // Display the sea level up to one decimal place
+    private final String SEA_LEVEL_TEXTVIEW_FORMAT = "%.1f";
 
 
     private SeekBar yearSeekBar;
@@ -37,8 +49,10 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
     private ArrayList<SeaLevelData> seaLevelDataList = new ArrayList<>();
     private HashMap<Integer, Double> seaLevelDataMap = new HashMap<>();
 
-    private View barGraph;
-
+    /**
+     * Creates the activity, sets the seek bar listener
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,22 +69,37 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
 
 
         yearSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /**
+             * Gets the value of the seek bar, converts it into a year, gets the gmsl from seaLevelDataMap,
+             * and sends the gmsl to the SeaLevelBar view
+             * @param seekBar the SeekBar
+             * @param i an integer
+             * @param b a boolean
+             */
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 selectedYear = i + LOWEST_YEAR;
                 yearTextView.setText(Integer.toString(selectedYear));
                 if (seaLevelDataMap.size() != 0) {
                     double gmsl = seaLevelDataMap.get(selectedYear) + OFFSET;
-                    testView.setText(String.valueOf(gmsl));
+                    testView.setText(String.format(Locale.CANADA, SEA_LEVEL_TEXTVIEW_FORMAT, gmsl));
                     seaLevelBar.setCurrentHeight((float) gmsl);
                 }
             }
 
+            /**
+             * Unused
+             * @param seekBar a SeekBar
+             */
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //yearTextView.setText("Hello world");
             }
 
+            /**
+             * Unused
+             * @param seekBar a SeekBar
+             */
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
@@ -87,9 +116,13 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
         }
 
         // sets the title to the toolbar
-        getSupportActionBar().setTitle("Sea Level History");
+        getSupportActionBar().setTitle(getResources().getString(R.string.history_action_bar_text));
     }
 
+    /**
+     * Parses the data into an array list of SeaLevelData objects, then calls a helper method
+     * to enter the data in a hash map
+     */
     private void queueParseJSON() {
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, SERVICE_URL, null,
                 new Response.Listener<JSONArray>() {
@@ -111,6 +144,9 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
         requestQueue.add(request);
     }
 
+    /*
+    Creates a hash map of year (Integer) keys with global mean sea level (Double) values
+     */
     private void createMap() {
         for (SeaLevelData sld: seaLevelDataList) {
             String[] yearArray = sld.getTime().split("-");
@@ -118,7 +154,6 @@ public class SeaLevelHistoryActivity extends AppCompatActivity {
             seaLevelDataMap.put(yearInt, sld.getGmsl());
         }
     }
-
 
     // back button function
     @Override
