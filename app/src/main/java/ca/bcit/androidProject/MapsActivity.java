@@ -91,6 +91,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(van));
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(2));
     }
 
     @SuppressLint("SetTextI18n")
