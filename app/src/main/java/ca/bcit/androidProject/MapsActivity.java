@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -49,12 +50,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private ArrayList<States> statesList;
 
-    private final static int RED_ZONE = Color.RED;
-
-    private final static int YELLOW_ZONE = Color.YELLOW;
-
-    private final static int GREEN_ZONE = Color.GREEN;
-
     private final static String SERVICE_URL = "https://sea-level-rise-data.herokuapp.com/api/v1/stations";
 
     private RequestQueue requestQueue;
@@ -63,7 +58,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        statesList = new ArrayList<States>();
+        statesList = new ArrayList<>();
 
         ActivityMapsBinding binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -98,6 +93,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 
+    @SuppressLint("SetTextI18n")
     public void onSearch() throws IOException {
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -107,9 +103,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         String location;
 
         System.out.println("Areas found: " + statesList.size());
-        for (int i = 0; i < statesList.size(); i++) {
+        for (int i = 0; i < statesList.size()/2; i++) {
             location = statesList.get(i).getStateName();
             float slr = Float.parseFloat(statesList.get(i).getSlrRate());
+            String locationName = statesList.get(i).getStateName();
 
             Geocoder geocoder = new Geocoder(this);
 
@@ -120,15 +117,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (!addressList.isEmpty()) {
                     Address adr = addressList.get(0);
 
-//
                     LatLng latLng = new LatLng(adr.getLatitude(), adr.getLongitude());
 
                     if (slr <= 1) {
-                        mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), GREEN_ZONE))));
+                        mMap.addMarker(new MarkerOptions().position(latLng)
+                                .title(locationName + ": " + slr + "mm")
+                                .draggable(true)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
                     } else if (slr > 1 && slr <= 2) {
-                        mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), YELLOW_ZONE))));
+                        mMap.addMarker(new MarkerOptions().position(latLng)
+                                .title(locationName + ": " + slr + "mm")
+                                .draggable(true)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
                     } else if (slr > 2) {
-                        mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(createPureTextIcon(Float.toString(slr), RED_ZONE))));
+                        mMap.addMarker(new MarkerOptions().position(latLng)
+                                .title(locationName + ": " + slr + "mm")
+                                .draggable(true)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                     }
                 }
             } catch (IOException e) {
