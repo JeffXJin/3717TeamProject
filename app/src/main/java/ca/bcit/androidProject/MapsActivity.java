@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.Lottie;
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,6 +34,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 
@@ -53,6 +56,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private final static String SERVICE_URL = "https://sea-level-rise-data.herokuapp.com/api/v1/stations";
 
     private RequestQueue requestQueue;
+
+    private Marker marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,18 +88,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
 
-        LatLng van = new LatLng(49.2578263, -123.1939441);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(van));
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(2));
-    }
-
-    @SuppressLint("SetTextI18n")
     public void onSearch() throws IOException {
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -102,18 +97,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         List<Address> addressList;
 
         String location;
-
+         int size = statesList.size() /2;
         System.out.println("Areas found: " + statesList.size());
-        for (int i = 0; i < statesList.size()/2; i++) {
+        for (int i = 0; i < size; i++) {
             location = statesList.get(i).getStateName();
             float slr = Float.parseFloat(statesList.get(i).getSlrRate());
-            String locationName = statesList.get(i).getStateName();
+
 
             Geocoder geocoder = new Geocoder(this);
 
             try {
                 addressList = geocoder.getFromLocationName(location, 1);
-
+                String locationName = statesList.get(i).getStateName();
                 // Check if JSON data location has a valid address
                 if (!addressList.isEmpty()) {
                     Address adr = addressList.get(0);
@@ -121,34 +116,35 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     LatLng latLng = new LatLng(adr.getLatitude(), adr.getLongitude());
 
                     if (slr <= 1) {
-                        mMap.addMarker(new MarkerOptions().position(latLng)
-                                .title(locationName + ": " + slr + "mm")
-                                .draggable(true)
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                         mMap.addMarker(new MarkerOptions().position(latLng)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                                 .title(locationName + ": " + slr + "mm")).showInfoWindow();
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
                     } else if (slr > 1 && slr <= 2) {
                         mMap.addMarker(new MarkerOptions().position(latLng)
-                                .title(locationName + ": " + slr + "mm")
-                                .draggable(true)
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+                                .title(locationName + ": " + slr + "mm")).showInfoWindow();
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                     } else if (slr > 2) {
                         mMap.addMarker(new MarkerOptions().position(latLng)
-                                .title(locationName + ": " + slr + "mm")
-                                .draggable(true)
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                                .title(locationName + ": " + slr + "mm"));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                     }
+
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }
-
         progressBar.setVisibility(View.INVISIBLE);
 
         TextView textView = findViewById(R.id.loading_text);
         textView.setText("Displaying SLR data for " + statesList.size() + " locations");
     }
+
 
     private void queueParseJSON() {
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, SERVICE_URL, null,
@@ -177,12 +173,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         requestQueue.add(request);
     }
 
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng van = new LatLng(49.2578263, -123.1939441);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(van));
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+    }
+
     public void onZoom(View v) {
         if (v.getId() == R.id.btnZoomIn)
             mMap.animateCamera(CameraUpdateFactory.zoomIn());
         else
             mMap.animateCamera(CameraUpdateFactory.zoomOut());
     }
+
+
+
 
     public Bitmap createPureTextIcon(String text, int color) {
 

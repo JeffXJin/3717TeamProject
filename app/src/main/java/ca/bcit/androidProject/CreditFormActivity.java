@@ -66,7 +66,7 @@ public class CreditFormActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (cardForm.isValid()) {
                     alertBuilder = new AlertDialog.Builder(CreditFormActivity.this);
-                    alertBuilder.setTitle("Confirm before purchase");
+                    alertBuilder.setTitle("Confirm your CC info");
                     alertBuilder.setMessage("Card number: " + cardForm.getCardNumber() + "\n" +
                             "Card expiry date: " + cardForm.getExpirationDateEditText().getText().toString() + "\n" +
                             "Card CVV: " + cardForm.getCvv() + "\n" +

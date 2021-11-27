@@ -19,7 +19,6 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:src="@drawable/nav_header"
         app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
         />
@@ -34,7 +33,7 @@
         android:textStyle="bold"
         android:layout_marginTop="-25dp"
         android:layout_marginStart="230dp"
-        app:drawableStartCompat="@drawable/ic_add"
+        app:drawableStartCompat="@drawable/ic_add_photo"
         app:drawableTint="@color/white" />
 
     <Button
@@ -172,6 +171,7 @@
             android:layout_weight="1"
             android:paddingTop="20dp"
             android:textAlignment="center"
+            android:textSize="20sp"
             android:text="" />
 
 

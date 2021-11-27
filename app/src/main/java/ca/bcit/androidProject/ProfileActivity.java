@@ -174,10 +174,12 @@ public class ProfileActivity extends AppCompatActivity {
                     fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
+                    if (imageUrl == null) {
+                        mImageView.setImageResource(R.drawable.default_profile);
+                    } else {
 
-                    Picasso.get().load(imageUrl).into(mImageView);
-
-
+                        Picasso.get().load(imageUrl).into(mImageView);
+                    }
                 }
             }
 

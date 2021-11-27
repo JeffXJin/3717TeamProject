@@ -62,7 +62,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 String password = editPassword.getText().toString().trim();
                 String fullname = editName.getText().toString().trim();
                 String phone = " ";
-                String image = " ";
+                String image = null;
 
                 if (TextUtils.isEmpty(email)) {
                     editEmail.setError("Email is required");
