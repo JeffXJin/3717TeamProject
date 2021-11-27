@@ -1,86 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/pagebackground"
-    tools:context="ca.bcit.androidProject.ContributeFragment">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView8"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="11dp"
-        android:text="@string/contribute_tab"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:shadowColor="@color/black"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/info1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:padding="5dp">
+        android:orientation="vertical"
+        android:background="@drawable/pagebackground"
+        tools:context="ca.bcit.androidProject.ContributeFragment">
 
         <TextView
-            android:id="@+id/Contribute_content1"
+            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="35dp"
             android:layout_marginBottom="11dp"
-            android:text="@string/content_contribute1"
+            android:text="@string/contribute_tab"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/Contribute_content2"
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/info1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/Contribute_content1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="11dp"
+                    android:text="@string/content_contribute1"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Contribute_content2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="11dp"
+                    android:text="@string/content_contribute2"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/Contribute_content1"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnDonate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginBottom="11dp"
-            android:text="@string/content_contribute2"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:layout_below="@+id/Contribute_content1"/>
+            android:onClick="onDonateClick"
+            android:background="@drawable/custom_button"
+            android:text="@string/donate_now"
+            android:textColor="@android:color/white" />
 
+    </LinearLayout>
 
-    </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+</ScrollView>
 
-
-    <Button
-        android:id="@+id/btnDonate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="10dp"
-        android:onClick="onDonateClick"
-        android:background="@drawable/custom_button"
-        android:text="@string/donate_now"
-        android:textColor="@android:color/white" />
-
-</LinearLayout>

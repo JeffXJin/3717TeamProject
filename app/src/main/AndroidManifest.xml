@@ -68,11 +68,11 @@
         <activity
             android:name=".CreateAccountActivity"
             android:exported="true"
-            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:configChanges="screenSize|keyboardHidden"
             android:parentActivityName=".LandingActivity" />
         <activity
             android:name=".LandingActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:configChanges="screenSize|keyboardHidden"
             android:exported="true">
 
             <intent-filter>
