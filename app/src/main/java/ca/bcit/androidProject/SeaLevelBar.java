@@ -31,10 +31,6 @@ public class SeaLevelBar extends View {
     private static final int NUMBER_OF_INCREMENTS = 10;
     // The highest and lowest increment values
     public static final float MAX_HEIGHT = 200, MIN_HEIGHT = 0;
-    // The highest value in our data set
-    public static final float MAX_VALUE = 206.2f;
-    // The lowest value in our data set
-    public static final float MIN_VALUE = -3.6f;
     private static final float HEIGHT_RANGE = MAX_HEIGHT - MIN_HEIGHT;
     private float currentHeight = MIN_HEIGHT;
     private final Rect rect = new Rect();
@@ -134,7 +130,6 @@ public class SeaLevelBar extends View {
         float outerStartY = 0;
         float middleStartY = outerStartY + 5;
 
-
         float innerEffectStartY = middleStartY + middleRectRadius + 10;
         float innerEffectEndY = circleCenterY - outerCircleRadius - 10;
         float innerRectHeight = innerEffectEndY - innerEffectStartY;
@@ -147,8 +142,6 @@ public class SeaLevelBar extends View {
 
         // Draw the gray outline of the bar
         canvas.drawRoundRect(outerRect, outerRectRadius, outerRectRadius, outerPaint);
-        // Draw the gray outline of the circle at the bottom of the bar
-        //canvas.drawCircle(circleCenterX, circleCenterY, outerCircleRadius, outerPaint);
 
         middleRect.left = circleCenterX - middleRectRadius;
         middleRect.top = middleStartY;
@@ -157,8 +150,6 @@ public class SeaLevelBar extends View {
 
         // Draw the inner white part of the bar
         canvas.drawRoundRect(middleRect, middleRectRadius, middleRectRadius, middlePaint);
-        // Draw the inner white circle at the bottom of the bar
-        //canvas.drawCircle(circleCenterX, circleCenterY, middleCircleRadius, middlePaint);
 
         bar.left = circleCenterX - innerRectRadius;
         bar.top = innerStartY;
@@ -166,10 +157,7 @@ public class SeaLevelBar extends View {
         bar.bottom = circleCenterY - 5f;
 
         // Draw the blue bar
-        //canvas.drawRect(circleCenterX - innerRectRadius, innerStartY, circleCenterX + innerRectRadius, circleCenterY, innerPaint);
         canvas.drawRoundRect(bar, innerRectRadius, innerRectRadius, innerPaint);
-        // Draw the blue circle at the bottom of the bar
-        //canvas.drawCircle(circleCenterX, circleCenterY, innerCircleRadius, innerPaint);
 
         float areaIncremented = innerEffectStartY;
         float incrementValue = MAX_HEIGHT;

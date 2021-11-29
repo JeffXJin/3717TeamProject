@@ -174,7 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
                     fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
-                    if (imageUrl == null) {
+                    if (imageUrl.isEmpty()) {
                         mImageView.setImageResource(R.drawable.default_profile);
                     } else {
 
